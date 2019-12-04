@@ -1,29 +1,33 @@
 'use strict';
 
-// Напиши фукцнию findLongestWord(string), которая принимает параметром 
-// произвольную строку (в строке будут только слова и пробелы) и возвращает 
-// самое длинное слово в этой строке.
+export function task_03() {
 
-const findLongestWord = (string) => {
+    // Напиши фукцнию findLongestWord(string), которая принимает параметром 
+    // произвольную строку (в строке будут только слова и пробелы) и возвращает 
+    // самое длинное слово в этой строке.
 
-    const words = string.split(' ');
-    let longestWord = words[0];
+    const findLongestWord = (string) => {
 
-    for (let word of words) {
+        const words = string.split(' ');
+        let longestWord = words[0];
 
-        if (word.length > longestWord.length) {
+        for (let word of words) {
 
-            longestWord = word;
+            if (word.length > longestWord.length) {
+
+                longestWord = word;
+
+            }
 
         }
 
+        return longestWord;
     }
 
-    return longestWord;
+    console.log(findLongestWord('The quick brown fox jumped over the lazy dog')); // 'jumped'
+
+    console.log(findLongestWord('Google do a roll')); // 'Google'
+
+    console.log(findLongestWord('May the force be with you')); // 'force'
+
 }
-
-console.log(findLongestWord('The quick brown fox jumped over the lazy dog')); // 'jumped'
-
-console.log(findLongestWord('Google do a roll')); // 'Google'
-
-console.log(findLongestWord('May the force be with you')); // 'force'

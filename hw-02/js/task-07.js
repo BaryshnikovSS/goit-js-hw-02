@@ -1,6 +1,8 @@
-// function task_07()
+'use strict';
 
-// {
+export function task_07()
+
+{
 
     // Есть массив logins с логинами пользователей. Напиши скрипт добавления логина в массив logins. 
     // Добавляемый логин должен:
@@ -44,16 +46,54 @@
 
     const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
 
+
+
     const isLoginValid = function (login) {
-        // код
+
+        return login.length >= 4 && login.length <= 16 ? true : false;
+
     };
+
+
 
     const isLoginUnique = function (allLogins, login) {
-        // код
+
+        let searchValue;
+
+        for (const elem in allLogins) {
+
+            if (login === allLogins[elem]) {
+
+                searchValue = false;
+                break
+
+            } else
+
+                searchValue = true;
+
+        }
+
+        return searchValue;
     };
 
+
+
     const addLogin = function (allLogins, login) {
-        // код
+
+        if (isLoginValid(login)) {
+
+            if (isLoginUnique(allLogins, login)) {
+
+                logins.push(login);
+                return console.log('Логин успешно добавлен!');
+
+            }
+
+            return console.log('Такой логин уже используется!');
+
+        }
+
+        return console.log('Ошибка! Логин должен быть от 4 до 16 символов');
     };
 
     // Вызовы функции для проверки
@@ -62,4 +102,4 @@
     addLogin(logins, 'Zod'); // 'Ошибка! Логин должен быть от 4 до 16 символов'
     addLogin(logins, 'jqueryisextremelyfast'); // 'Ошибка! Логин должен быть от 4 до 16 символов'
 
-// }
+}

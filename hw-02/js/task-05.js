@@ -1,31 +1,35 @@
 'use strict';
 
-// Напиши функцию checkForSpam(str), принимающую 1 параметр string - строку. 
-// Функция проверяет ее на содержание слов spam и sale. Если нашли зарещенное слово 
-// то функция возвращает true, если запрещенных слов нет функция возвращает false. 
-// Слова в строке могут быть в произвольном регистре.
+export function task_05() {
 
-const checkForSpam = (str) => {
+    // Напиши функцию checkForSpam(str), принимающую 1 параметр string - строку. 
+    // Функция проверяет ее на содержание слов spam и sale. Если нашли зарещенное слово 
+    // то функция возвращает true, если запрещенных слов нет функция возвращает false. 
+    // Слова в строке могут быть в произвольном регистре.
 
-    str = str.toLowerCase();
-    const words = str.split(' ');
-    const firstWord = 'spam';
-    const secondWord = 'sale';
+    const checkForSpam = (str) => {
 
-    if (words.includes(firstWord) || words.includes(secondWord)) {
+        str = str.toLowerCase();
+        const words = str.split(' ');
+        const firstWord = 'spam';
+        const secondWord = 'sale';
 
-        return true;
+        if (words.includes(firstWord) || words.includes(secondWord)) {
+
+            return true;
+
+        }
+
+        return false;
 
     }
 
-    return false;
+    console.log(checkForSpam('Latest technology news')); // false
+
+    console.log(checkForSpam('JavaScript weekly newsletter')); // false
+
+    console.log(checkForSpam('Get best sale offers now!')); // true
+
+    console.log(checkForSpam('SPAM How to earn fast money?')); // true
 
 }
-
-console.log(checkForSpam('Latest technology news')); // false
-
-console.log(checkForSpam('JavaScript weekly newsletter')); // false
-
-console.log(checkForSpam('Get best sale offers now!')); // true
-
-console.log(checkForSpam('SPAM How to earn fast money?')); // true
